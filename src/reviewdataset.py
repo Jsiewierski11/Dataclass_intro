@@ -1,5 +1,6 @@
 import torch.utils.data import Dataset
 from reviewvectorizer import ReviewVectorizer
+
 class ReviewDataset(Dataset):
     def __init__(self, review_df, vectorizer):
         """

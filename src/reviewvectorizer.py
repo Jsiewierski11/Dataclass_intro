@@ -55,3 +55,35 @@ class ReviewVectorizer:
                 review_vocab.add_token(word)
 
         return cls(review_vocab, rating_vocab)
+
+    @classmethod
+    def from_serializable(cls, contents):
+        """
+        Instantiate a ReviewVecotrizer from a serializable dictionary
+
+        Args:
+            contents (dict): the serializale dictionary
+        Returns:
+            an instance of the ReviewVectorizer class
+        """
+        review_vocab = Vocabulary.from_serializable(contents['review_vocab'])
+        rating_vocab = Vocabulary.from_serializable(contents['rating_vocab'])
+
+        return cls(review_vocab=review_vocab, rating_vocab=rating_vocab)
+
+    def to_serializable(self):
+        """
+        Create the serilizable dictionary for caching
+
+        Returns:
+            contents (dict): the serializable dictionary
+        """
+        return {'review_vocab': self.review_vocab.to_serializable(),
+                'rating_vocab': self.rating_vocab.to_serializable()}
+
+
+
+
+
+
+
