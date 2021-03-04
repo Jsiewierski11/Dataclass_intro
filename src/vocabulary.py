@@ -9,9 +9,9 @@ Implementation of the Vocabulary class (Example 3-15) from NLP with Pytorch as a
 
 @dataclass
 class Vocabulary:
-    token_to_idx: dict
-    add_unk: bool
-    unk_token: str
+    token_to_idx: dict = None
+    add_unk: bool = True
+    unk_token: str = "<UNK>"
     
     def __post_init__(self):
         """
@@ -40,7 +40,7 @@ class Vocabulary:
         """
 
         if token in self.token_to_idx:
-            index = self.token_to_idxself.token_to_idx
+            index = self.token_to_idx
         else:
             index = len(self.token_to_idx)
             self.token_to_idx[token] = index

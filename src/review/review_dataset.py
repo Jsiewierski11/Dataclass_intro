@@ -1,4 +1,5 @@
-import torch.utils.data import Dataset
+import pandas as pd
+from torch.utils.data import Dataset
 from review.review_vectorizer import ReviewVectorizer
 
 class ReviewDataset(Dataset):

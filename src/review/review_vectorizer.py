@@ -1,5 +1,7 @@
 from dataclasses import dataclass, asdict
 import json, yaml
+import string
+from collections import Counter
 
 from vocabulary import Vocabulary
 
@@ -41,13 +43,13 @@ class ReviewVectorizer:
 
         # Add ratings
         for rating in sorted(set(review_df.rating)):
-            rating_vocab.add_token(rating_vocab)
+            rating_vocab.add_token(rating)
 
         # Add top words if count > provided count
         word_counts = Counter()
         for review in review_df.review:
             for word in review.split(" "):
-                if words not in string.punctuation:
+                if word not in string.punctuation:
                     word_counts[word] += 1
 
         for word, count in word_counts.items():

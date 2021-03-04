@@ -1,14 +1,14 @@
 import torch.nn as nn 
 import torch.nn.functional as F 
 
-class RevieClassifier(nn.Module):
+class ReviewClassifier(nn.Module):
     """A simple perceptron-based classifier."""
     def __init__(self, num_features):
         """
         Args:
             num features (int): the size of the input feature vector.
         """
-        super(RevieClassifier, self).__init__()
+        super(ReviewClassifier, self).__init__()
         self.fc1 = nn.Linear(in_features=num_features, out_features=1)
 
     def forward(self, x_in, apply_sigmoid=False):
